@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MBS Consultant & Projects</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f5f7fb;color:#222;line-height:1.6;}
+
+header{
+  background:#0d1b2a;
+  color:white;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+header h1{font-size:22px;letter-spacing:1px;}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+  transition:0.3s;
+}
+
+nav a:hover{color:#00b4d8;}
+
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0d1b2a,#1b263b);
+  color:white;
+  padding:80px 8%;
+  text-align:center;
+  animation:fadeIn 1.5s ease-in;
+}
+.hero h2{font-size:38px;margin-bottom:15px;}
+.hero p{max-width:700px;margin:auto;margin-bottom:25px;}
+
+.btn{
+  padding:12px 25px;
+  background:#00b4d8;
+  color:white;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.btn:hover{background:#0096c7;transform:scale(1.05);}
+
+section{padding:60px 8%;}
+h2.section-title{text-align:center;margin-bottom:40px;font-size:28px;}
+
+.services,.products,.reviews{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(30px);
+}
+
+.card h4{
+  margin-bottom:6px;
+  color:#0d1b2a;
+}
+
+.card p{
+  font-size:14px;
+}
+
+.card.show{opacity:1;transform:translateY(0);}
+.card:hover{transform:translateY(-5px);}
+
+.price{color:#0077b6;font-weight:bold;margin-top:8px;}
+.review-stars{color:gold;margin-bottom:8px;}
+
+.contact{
+  background:#1b263b;
+  color:white;
+  border-radius:10px;
+  padding:40px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#0d1b2a;
+  color:white;
+  margin-top:40px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(-20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* 📱 MOBILE NAV */
+@media(max-width:900px){
+  nav{
+    position:absolute;
+    top:70px;
+    right:8%;
+    background:#1b263b;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    border-radius:10px;
+    display:none;
+    animation:slideDown 0.3s ease;
+  }
+
+  nav.show{display:flex;}
+
+  .menu-toggle{display:block;}
+}
+
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:768px){
+  .hero h2{font-size:28px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>MBS Consultant & Projects</h1>
+  <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+  <nav id="navMenu">
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Professional Business & Compliance Services</h2>
+  <p>Company registrations, licensing, tutoring, tendering services, SARS compliance and more — all handled by experts.</p>
+  <button class="btn" onclick="scrollToSection('contact')">Book Appointment</button>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services">
+    <div class="card">Business & Company Registrations</div>
+    <div class="card">Tendering Services & BOQs</div>
+    <div class="card">Business Licensing</div>
+    <div class="card">Online Classes & Tutoring</div>
+    <div class="card">SARS Services & Compliance</div>
+    <div class="card">CIDB Registrations</div>
+  </div>
+</section>
+
+<section id="products">
+  <h2 class="section-title">Products & Pricing</h2>
+  <div class="products">
+    <div class="card">Letter of Good Standing <div class="price">R 600</div></div>
+    <div class="card">Liquor License <div class="price">R 9 000</div></div>
+    <div class="card">NCR Certificate <div class="price">R 4 000</div></div>
+    <div class="card">LPGAS Certificate <div class="price">R 6 500</div></div>
+    <div class="card">Cleaning Certificate <div class="price">R 1 250</div></div>
+    <div class="card">Professional Website Design <div class="price">R 1 500</div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <h2 class="section-title">Customer Reviews (4.6 ★)</h2>
+  <div class="reviews">
+
+    <div class="card">
+      <h4>Itumeleng Magohle</h4>
+      <div class="review-stars">★★★★★</div>
+      <p>Excellent service from start to finish. Friendly team, fast results, and great quality. I definitely recommend it.</p>
+    </div>
+
+    <div class="card">
+      <h4>Tufayl Patel</h4>
+      <div class="review-stars">★★★★★</div>
+      <p>Outstanding, timeous service and dedication. I was assisted with a registration overnight and achieved all my trading requirements within a day.</p>
+    </div>
+
+    <div class="card">
+      <h4>Seja Tshepo</h4>
+      <div class="review-stars">★★★★★</div>
+      <p>I highly recommend MBS Consultant. Their services are very good.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="contact">
+    <p><i class="fas fa-map-marker-alt"></i> Vergelegen B, Jane Furse</p>
+    <p><i class="fas fa-phone"></i> 012 881 1848</p>
+    <p><i class="fas fa-clock"></i> Open · Closes 5pm</p>
+    <p>Serving Pretoria Central and nearby areas</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 MBS Consultant & Projects
+</footer>
+
+<script>
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* Scroll animation */
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('show');}
+  });
+},{threshold:0.2});
+cards.forEach(card=>observer.observe(card));
+
+/* Burger menu toggle */
+const menuToggle=document.getElementById('menuToggle');
+const navMenu=document.getElementById('navMenu');
+
+menuToggle.addEventListener('click',()=>{
+  navMenu.classList.toggle('show');
+});
+</script>
+
+</body>
+</html>
