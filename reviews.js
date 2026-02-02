@@ -1,0 +1,22 @@
+const reviews = [
+  {name:"Archar Supply", text:"From my experience with MBS CONSULTANT AND PROJECTS is the best consulting company ever. I had doubts before, but today I have my license and operate legally."},
+  {name:"Itumeleng Magohle", text:"Excellent service from start to finish. Friendly team, fast results, and great quality."},
+  {name:"Tarien Hattingh", text:"Fantastic experience! They resolved our problems within a week."},
+  {name:"Chantal Botha", text:"Friendly, helpful and went the extra mile even on a Friday evening."},
+  {name:"Sipho Khuzwayo", text:"Extremely happy with the service. Never scammed me like others."},
+  {name:"Tufayl Patel", text:"Outstanding, timeous service and dedication."},
+  {name:"Junior Mmadi", text:"Very happy with the service. Company registration and CIDB done."},
+  {name:"Rams Mmatloa", text:"Didn’t trust at first, but they proved me wrong."},
+  {name:"Samkelo Thusi", text:"Very professional and assist quickly."},
+  {name:"Dieketseng Moseme", text:"AR declared in less than 30 minutes!"},
+  {name:"Seja Tshepo", text:"Highly recommend MBS Consultant."},
+  {name:"Pontsho Jerry", text:"Very professional with great business ethics."},
+  {name:"Tebogo Mashilo", text:"Thank you for registering my Gas filling certificate."},
+  {name:"James Fenyane", text:"Glad with the help from MBS."},
+  {name:"Keamogetswe Sathekge", text:"Security company doing well thanks to their services."},
+  {name:"Jabu Mahlangu", text:"Very happy with the service."},
+  {name:"Flora Kekana", text:"Got my LPGAS certificate."},
+  {name:"Dimakatso Radingwana", text:"Privilege working with MBS."},
+  {name:"Zanele Nsingo", text:"Fast and efficient."},
+  {name:"Merrie", text:"The service was great ❤"}
+];

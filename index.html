@@ -10,6 +10,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 body{background:#f5f7fb;color:#222;line-height:1.6;}
 
+
 header{
   background:#0d1b2a;
   color:white;
@@ -100,6 +101,27 @@ h2.section-title{text-align:center;margin-bottom:40px;font-size:28px;}
 .price{color:#0077b6;font-weight:bold;margin-top:8px;}
 .review-stars{color:gold;margin-bottom:8px;}
 
+.review-card img{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-right:12px;
+  border:2px solid #00b4d8;
+}
+
+.review-header{
+  display:flex;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.review-card h4{
+  margin:0;
+  font-size:15px;
+  color:#0d1b2a;
+}
+
 .contact{
   background:#1b263b;
   color:white;
@@ -113,6 +135,10 @@ footer{
   background:#0d1b2a;
   color:white;
   margin-top:40px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 @keyframes fadeIn{
@@ -195,29 +221,11 @@ footer{
 </section>
 
 <section id="reviews">
-  <h2 class="section-title">Customer Reviews (4.6 ★)</h2>
-  <div class="reviews">
-
-    <div class="card">
-      <h4>Itumeleng Magohle</h4>
-      <div class="review-stars">★★★★★</div>
-      <p>Excellent service from start to finish. Friendly team, fast results, and great quality. I definitely recommend it.</p>
-    </div>
-
-    <div class="card">
-      <h4>Tufayl Patel</h4>
-      <div class="review-stars">★★★★★</div>
-      <p>Outstanding, timeous service and dedication. I was assisted with a registration overnight and achieved all my trading requirements within a day.</p>
-    </div>
-
-    <div class="card">
-      <h4>Seja Tshepo</h4>
-      <div class="review-stars">★★★★★</div>
-      <p>I highly recommend MBS Consultant. Their services are very good.</p>
-    </div>
-
-  </div>
+  <h2 class="section-title">Customer Reviews</h2>
+  <div class="reviews" id="reviewsContainer"></div>
 </section>
+
+
 
 
 <section id="contact">
@@ -234,6 +242,7 @@ footer{
   © 2026 MBS Consultant & Projects
 </footer>
 
+<script src="reviews.js"></script>
 <script>
 function scrollToSection(id){
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
@@ -249,13 +258,48 @@ const observer=new IntersectionObserver(entries=>{
 cards.forEach(card=>observer.observe(card));
 
 /* Burger menu toggle */
-const menuToggle=document.getElementById('menuToggle');
-const navMenu=document.getElementById('navMenu');
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
 
-menuToggle.addEventListener('click',()=>{
+menuToggle.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
+
+// Auto close when link clicked (mobile)
+document.querySelectorAll('#navMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
+});
+
+// Load reviews dynamically from reviews.js
+document.addEventListener("DOMContentLoaded", () => {
+
+  const container = document.getElementById("reviewsContainer");
+
+  reviews.forEach((review, i) => {
+    const card = document.createElement("div");
+    card.className = "card review-card";
+
+    card.innerHTML = `
+      <div class="review-header">
+        <img src="https://i.pravatar.cc/80?img=${i+10}" alt="${review.name}">
+        <div>
+          <h4>${review.name}</h4>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>${review.text}</p>
+    `;
+
+    container.appendChild(card);
+    observer.observe(card); // 👈 THIS LINE FIXES IT
+  });
+
+});
+
 </script>
+
 
 </body>
 </html>
